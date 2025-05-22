@@ -1,0 +1,150 @@
+.signup-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    font-family: sans-serif;
+}
+
+.signup-left {
+    width: 42%;
+    height: 100%;
+    background-image: url('../../assets/BG.png');
+    background-position: center;
+    background-size: cover;
+    color: white;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.text-group {
+    max-width: 465px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: center;
+}
+
+.text-group h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 3.55rem;
+    line-height: 1;
+}
+
+.text-group p {
+    font-size: 1.1rem;
+    max-width: 460px;
+    color: #f0f0f0;
+    line-height: 1.4;
+    margin-left: 40px;
+}
+
+.auth-button {
+    width: 285px;
+    height: 65px;
+    margin-top: 26.43px;
+    border-radius: 44px;
+    border: 2px solid #fff;
+    background-color: transparent;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 300ms ease-in-out;
+}
+
+/* Optional hover/focus effects */
+.auth-button:hover,
+.auth-button:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: scale(1.03);
+}
+
+.signup-right {
+    width: 58%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 3rem;
+    box-sizing: border-box;
+}
+
+.create-account-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    border-radius: 16px;
+}
+
+
+.create-account-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 56.78px;
+    line-height: 1;
+    letter-spacing: 0;
+    color: #EDA415;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input-group i {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 1rem;
+}
+
+.input-group input {
+    width: 528.5px;
+    height: 68.62px;
+    padding-left: 42px;
+    border-radius: 8px;
+    border: 0.5px solid #ccc;
+    background-color: #F4F8F5;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+
+}
+
+.button-wrapper button {
+    width: 285px;
+    max-width: 345px;
+    height: 65px;
+    background-color: #EDA415;
+    border: none;
+    border-radius: 43.68px;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+    align-self: center;
+    margin-top: 1.5rem;
+}
