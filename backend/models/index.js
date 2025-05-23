@@ -2,7 +2,8 @@
 const { client } = require("../config/database_connection");
 
 const getUserCollection = () => client.db("product-management").collection("users");
-const Product = () => client.db("product-management").collection("products");
-const Category = () => client.db("product-management").collection("categories");
+const getProduct = () => client.db("product-management").collection("products");
+const getCategory = () => client.db("product-management").collection("categories");
 
-module.exports = { getUserCollection, Product, Category };
+
+module.exports = { getUserCollection,getCategory,getProduct};
