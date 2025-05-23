@@ -1,0 +1,96 @@
+/* Navbar.css */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #003F62;
+    color:white;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    
+}
+
+.logo {
+    width: 140px;
+    height: 39px;
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 20px;
+    line-height: 39px;
+    color: #fff;
+    user-select: none;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    width: 482px;
+    height: 56px;
+    gap: 85px;
+    border-radius: 20px;
+    background-color: #fff;
+    padding-left: 25px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-container input {
+    flex: 1;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background-color: transparent;
+}
+
+.search-container button {
+    width: 132px;
+    height: 56px;
+    border: none;
+    background-color: #EDA415;
+    color: white;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.search-container button:hover {
+  background-color: #d99313; 
+  transform: scale(1.03);
+}
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-container {
+  position: relative;
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+}
+
+.icon-image {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.icon-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
