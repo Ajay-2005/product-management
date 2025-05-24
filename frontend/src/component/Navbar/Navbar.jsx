@@ -20,7 +20,7 @@ const Navbar = () => {
                     <img src={Heart} alt="wishlist" className="icon-image" />
                     <div className="icon-badge">2</div>
                 </div>
-                <Link to="/signin" style={{ textDecoration: 'none',color:'white' }}>
+                <Link to="/signin" style={{ textDecoration: 'none', color: 'white' }}>
                     <span>Sign In</span>
                 </Link>
                 <div className="icon-container">
