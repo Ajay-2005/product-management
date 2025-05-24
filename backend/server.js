@@ -3,11 +3,16 @@ const express = require("express");
 const { connectDB } = require("./config/database_connection");
 const cors = require("cors");
 const app = express();
-app.use(cors());
+
+app.use(cors({
+    origin: true,
+    credentials: true
+}));
+
+
 app.use(express.json());
 const session = require("express-session");
 connectDB();
-
 
 app.use(session({
     secret: "mysession",
@@ -16,6 +21,7 @@ app.use(session({
     cookie: {
         secure: false,
         httpOnly: true,
+        sameSite: "lax",
         maxAge: 1000 * 60 * 60 * 24 * 7
     }
 }));

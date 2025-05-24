@@ -25,6 +25,7 @@ function Signup() {
         e.preventDefault();
         try {
             const response = await handleSignup(formData);
+            console.log("Response from server:", response);
             if (response) {
                 navigate("/signin");
             }
@@ -50,17 +51,17 @@ function Signup() {
                     <form className="signup-form" onSubmit={handleSubmit}>
                         <div className="input-group">
                             <i className="fas fa-user"></i>
-                            <input type="text" placeholder="Name" required onChange={handleChange} />
+                            <input type="text" name="name" placeholder="Name" required onChange={handleChange} />
                         </div>
 
                         <div className="input-group">
                             <i className="fas fa-envelope"></i>
-                            <input type="email" placeholder="Email" required onChange={handleChange} />
+                            <input type="email" name="email" placeholder="Email" required onChange={handleChange} />
                         </div>
 
                         <div className="input-group">
                             <i className="fas fa-lock"></i>
-                            <input type="password" placeholder="Password" required onChange={handleChange} />
+                            <input type="password" name="password" placeholder="Password" required onChange={handleChange} />
                         </div>
 
                         {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}

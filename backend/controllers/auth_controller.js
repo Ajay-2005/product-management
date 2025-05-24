@@ -57,7 +57,7 @@ const signin = async (req, res) => {
             name: user.name,
             email: user.email,
         };
-
+       
         res.json({
             message: "Signin successful",
             user: req.session.user

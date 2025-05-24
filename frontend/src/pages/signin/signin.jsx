@@ -19,18 +19,25 @@ function SignIn() {
         }));
     }
     const handleSubmit = async (e) => {
-        console.log(formData);
         e.preventDefault();
+        console.log("Submitted Form Data:", formData);
+        if (!formData.email || !formData.password) {
+            setError("Email and password are required.");
+            return;
+        }
+
         try {
             const response = await handleLogin(formData);
+            console.log("Response from server:", response);
             if (response) {
-                navigate("/signup");
+                localStorage.setItem("user", JSON.stringify(response));
+                navigate("/");
             }
-        }
-        catch (err) {
+        } catch (err) {
             setError(err.message);
         }
-    }
+    };
+
     return (
         <div className="signin-container">
 
@@ -38,15 +45,15 @@ function SignIn() {
                 <div className="sign-in-section">
                     <h2>Sign In to
                         Your Account</h2>
-                    <form className="signin-form" onClick={handleSubmit}>
+                    <form className="signin-form" onSubmit={handleSubmit}>
                         <div className="input-group">
                             <i className="fas fa-envelope"></i>
-                            <input type="email" placeholder="Email" required onChange={handleChange} />
+                            <input type="email" placeholder="Email" name="email" required onChange={handleChange} />
                         </div>
 
                         <div className="input-group">
                             <i className="fas fa-lock"></i>
-                            <input type="password" placeholder="Password" required onChange={handleChange} />
+                            <input type="password" name="password" placeholder="Password" required onChange={handleChange} />
                         </div>
                         <div className="forgot-password">
                             <Link to="">Forgot Password?</Link>

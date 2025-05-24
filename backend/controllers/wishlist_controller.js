@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import {  getProduct, getUserCollection } from '../models/index.js';
+import { getProduct, getUserCollection } from '../models/index.js';
 
 export async function addToWishlist(req, res) {
     try {

@@ -13,3 +13,22 @@ export async function fetchCategories() {
         throw error;
     }
 }
+export async function addCategory(category) {
+    try {
+        const res = await fetch(`${API_BASE_URL}/add-category`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify({ name: category }),
+
+        });
+        console.log(res);
+        if (!res) throw new Error("Failed to add category");
+        return await res.json();
+    } catch (error) {
+        console.error("Error adding category:", error);
+        throw error;
+    }
+}

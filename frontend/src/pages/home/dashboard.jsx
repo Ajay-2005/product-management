@@ -3,18 +3,21 @@ import Navbar from "../../component/Navbar/Navbar";
 import SideBar from "../../component/Sidebar/SideBar";
 import "./dashboard.css";
 import { fetchProducts } from "../../services/productService";
-import { useEffect, useState  } from "react";
-
+import { useEffect, useState } from "react";
+import AddCategoryModal from "../../component/modals/CategoryModal/add_category";
 const Dashboard = () => {
   const [products, setProducts] = useState([]);
+  const [isCategoryModalOpen, setIsCategoryModalOpen] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-; 
+        ;
         const response = await fetchProducts();
         console.log(response)
         setProducts(response.products);
         console.log(products);
+
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -32,11 +35,19 @@ const Dashboard = () => {
 
         <div className="dashboard-main">
           <div className="top-bar">
-            <button>Add category</button>
+            <button onClick={() => setIsCategoryModalOpen(true)}>Add category</button>
+
             <button>Add sub category</button>
             <button>Add product</button>
           </div>
-
+          <AddCategoryModal
+            isOpen={isCategoryModalOpen}
+            onClose={() => setIsCategoryModalOpen(false)}
+            onAdd={(category) => {
+              console.log("Category added:", category);
+              setIsCategoryModalOpen(false);
+            }}
+          />
           <div className="product-grid">
             {products.length === 0 ? (
               <p>No products found.</p>

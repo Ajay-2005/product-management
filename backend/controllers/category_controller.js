@@ -34,7 +34,7 @@ export async function createCategory(req, res) {
 
 export async function listCategories(req, res) {
   try {
-    const cateogory=getCategory()
+    const cateogory = getCategory()
 
     const categories = await cateogory.aggregate([
       {

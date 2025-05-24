@@ -1,21 +1,43 @@
-import axios from 'axios';
-
-const API_URL = "http://localhost:5000/api"; 
+const API_URL = "http://localhost:5000/api";
 
 export const handleSignup = async (formData) => {
   try {
-    const response = await axios.post(`${API_URL}/signup`, formData);
-    return response.data;
+    const response = await fetch(`${API_URL}/signin`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",  // <-- this makes the browser send cookies
+      body: JSON.stringify(formData),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw errorData;
+    }
+    return await response.json();
   } catch (error) {
-    throw error.response?.data || { message: "Signup failed" };
+    throw error || { message: "Signup failed" };
   }
 };
 
 export const handleLogin = async (formData) => {
   try {
-    const response = await axios.post(`${API_URL}/signin`, formData);
-    return response.data;
+    const response = await fetch(`${API_URL}/signin`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify(formData),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw errorData;
+    }
+    return await response.json();
   } catch (error) {
-    throw error.response?.data || { message: "Login failed" };
+    throw error || { message: "Login failed" };
   }
 };
