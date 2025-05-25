@@ -23,22 +23,30 @@ const AddCategoryModal = ({ isOpen, onClose, onAdd }) => {
     if (!isOpen) return null;
 
     return (
-        <div className="modal-backdrop">
-            <div className="modal-content">
-                <h2>Add  Category</h2>
+        <div className="category-modal-backdrop">
+            <div className="category-modal-content">
+                <h2>Add Category</h2>
+
                 <input
                     type="text"
                     placeholder="Enter category name"
                     name="category"
                     value={categoryName}
                     onChange={(e) => setCategoryName(e.target.value)}
+                    className="category-modal-input"
                 />
-                <div className="modal-buttons">
-                    <button className="add-btn" onClick={handleAdd}>Add</button>
-                    <button className="discard-btn" onClick={handleDiscard}>Discard</button>
+
+                <div className="category-modal-buttons">
+                    <button className="category-modal-add-btn" onClick={handleAdd}>
+                        Add
+                    </button>
+                    <button className="category-modal-discard-btn" onClick={handleDiscard}>
+                        Discard
+                    </button>
                 </div>
             </div>
         </div>
+
     );
 };
 

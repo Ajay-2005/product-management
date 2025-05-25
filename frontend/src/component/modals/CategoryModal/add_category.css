@@ -1,4 +1,4 @@
-.modal-backdrop {
+.category-modal-backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,20 +11,20 @@
   z-index: 999;
 }
 
-.modal-content {
+.category-modal-content {
   background: white;
   padding: 2rem;
   border-radius: 8px;
   width: 90%;
-  max-width: 290px;
+  max-width: 400px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.modal-content h2 {
+.category-modal-content h2 {
   margin-top: 0;
 }
 
-.modal-content input {
+.category-modal-input {
   width: 100%;
   padding: 10px;
   margin-top: 1rem;
@@ -33,30 +33,7 @@
   border-radius: 4px;
 }
 
-.modal-buttons {
-  display: flex;
-  justify-content: center;
-}
-
-.add-btn {
-  background-color: #EDA415;
-  color: white;
-  padding: 10px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.discard-btn {
-  background-color: #EEEEEE;
-  color: black;
-  padding: 10px 16px;
-  margin-left: 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.dropdown-select {
+.category-modal-select {
   width: 100%;
   padding: 10px;
   margin-top: 1rem;
@@ -65,4 +42,28 @@
   border-radius: 4px;
   background: white;
   font-size: 14px;
+}
+
+.category-modal-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.category-modal-add-btn {
+  background-color: #EDA415;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.category-modal-discard-btn {
+  background-color: #EEEEEE;
+  color: black;
+  padding: 10px 16px;
+  margin-left: 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }

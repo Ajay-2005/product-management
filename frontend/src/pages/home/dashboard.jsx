@@ -6,11 +6,13 @@ import { fetchProducts } from "../../services/productService";
 import { useEffect, useState } from "react";
 import AddCategoryModal from "../../component/modals/CategoryModal/add_category";
 import AddSubcategoryModal from "../../component/modals/CategoryModal/add_subcategory";
+import AddProductModal from "../../component/modals/productModal/add_product";
 
 const Dashboard = () => {
   const [products, setProducts] = useState([]);
   const [isCategoryModalOpen, setIsCategoryModalOpen] = useState(false);
   const [isSubcategoryModalOpen, setIsSubcategoryModalOpen] = useState(false);
+  const [isAddProductModalOpen, setIsAddProductModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,7 +43,7 @@ const Dashboard = () => {
             <button onClick={() => setIsCategoryModalOpen(true)}>Add category</button>
 
             <button onClick={() => setIsSubcategoryModalOpen(true)}>Add subcategory</button>
-            <button>Add product</button>
+            <button onClick={() => setIsAddProductModalOpen(true)}>Add product</button>
           </div>
           <AddCategoryModal
             isOpen={isCategoryModalOpen}
@@ -57,6 +59,14 @@ const Dashboard = () => {
             onAdd={(subcategory) => {
               console.log("Subcategory added:", subcategory);
               setIsSubcategoryModalOpen(false);
+            }}
+          />
+          <AddProductModal
+            isOpen={isAddProductModalOpen}
+            onClose={() => setIsAddProductModalOpen(false)}
+            onAdd={(product) => {
+              console.log("Product added:", product);
+              setIsAddProductModalOpen(false);
             }}
           />
           <div className="product-grid">

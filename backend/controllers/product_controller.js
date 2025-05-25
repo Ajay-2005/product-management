@@ -4,11 +4,11 @@ import cloudinary from "../config/cloudinary.js";
 
 export async function addProduct(req, res) {
     try {
-        const { name, category, description, price, variants } = req.body;
+        const { name, category, subcategory, description, variants } = req.body;
         const files = req.files;
 
-        if (!files) {
-            return res.status(400).json({ success: false, message: 'Please upload atleast one image' });
+        if (!files || files.length === 0) {
+            return res.status(400).json({ success: false, message: 'Please upload at least one image' });
         }
 
         const uploadPromises = files.map(file => {
@@ -26,26 +26,39 @@ export async function addProduct(req, res) {
 
         const imageUrls = await Promise.all(uploadPromises);
 
+        let parsedVariants = [];
+        try {
+            parsedVariants = variants ? JSON.parse(variants) : [];
+        } catch (err) {
+            return res.status(400).json({ success: false, message: 'Invalid variants format' });
+        }
 
         const productsCollection = getProduct();
 
         const productData = {
             name,
             category,
+            subcategory,
             description,
-            price: Number(price),
-            variants: variants ? JSON.parse(variants) : [],
+            variants: parsedVariants,
             images: imageUrls,
             createdAt: new Date(),
         };
 
         const result = await productsCollection.insertOne(productData);
 
-        res.status(201).json({ success: true, productId: result.insertedId, images: imageUrls });
+        res.status(201).json({
+            success: true,
+            productId: result.insertedId,
+            images: imageUrls
+        });
+
     } catch (error) {
+        console.error('Error adding product:', error);
         res.status(500).json({ success: false, message: error.message });
     }
 }
+
 export async function listProducts(req, res) {
     try {
         const productsCollection = getProduct();
