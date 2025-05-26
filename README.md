@@ -10,8 +10,8 @@ Built using **React.js**, **Node.js**, **Express.js**, **MongoDB**, and **Cloudi
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/your-repo.git
-```
+
+```https://github.com/Ajay-2005/product-management
 
 ---
 
