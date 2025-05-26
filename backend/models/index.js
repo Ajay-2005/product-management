@@ -1,4 +1,4 @@
-// models/index.js
+
 const { client } = require("../config/database_connection");
 
 const getUserCollection = () => client.db("product-management").collection("users");

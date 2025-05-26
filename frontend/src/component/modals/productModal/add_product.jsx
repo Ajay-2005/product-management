@@ -7,11 +7,10 @@ import { use } from "react";
 const AddProductModal = ({ isOpen, onClose, onAdd }) => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
-    const [subcategory, setSubcategory] = useState("");
     const [variants, setVariants] = useState([{ ram: "", price: "", qty: 1 }]);
     const [images, setImages] = useState([]);
     const [categories, setCategories] = useState([]);
-   
+
     useEffect(() => {
         const loadCategories = async () => {
             try {
@@ -45,7 +44,7 @@ const AddProductModal = ({ isOpen, onClose, onAdd }) => {
         const productData = {
             title,
             description,
-            subcategory,
+            categories,
             variants,
             images,
         };

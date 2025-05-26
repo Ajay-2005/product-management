@@ -15,13 +15,12 @@ export async function fetchProducts() {
 
 export async function addProduct(productData) {
     try {
-        const { title, description, category, subcategory, variants, images } = productData;
+        const { title, description, category, variants, images } = productData;
 
         const formData = new FormData();
         formData.append("name", title);
         formData.append("description", description);
-        formData.append("category", category);
-        formData.append("subcategory", subcategory);
+        formData.append("category", category)
         formData.append("variants", JSON.stringify(variants));
 
         images.forEach((image) => {
@@ -42,4 +41,13 @@ export async function addProduct(productData) {
     }
 }
 
-
+export async function getProductById(productId) {
+    try {
+        const res = await fetch(`${API_BASE_URL}/product/${productId}`);
+        if (!res.ok) throw new Error("Failed to fetch product");
+        return await res.json();
+    } catch (error) {
+        console.error("Error fetching product by ID:", error);
+        throw error;
+    }
+}

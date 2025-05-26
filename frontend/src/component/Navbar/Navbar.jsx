@@ -1,10 +1,13 @@
-import React from 'react';
+
 import './Navbar.css';
 import Heart from '../../assets/heart.png';
 import Cart from '../../assets/shopping-cart.png';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+// Navbar.jsx
+
+
+const Navbar = ({ onWishlistClick }) => {
     return (
         <nav className="navbar">
             <div className="nav-left">
@@ -16,13 +19,15 @@ const Navbar = () => {
             </div>
 
             <div className="nav-right">
-                <div className="icon-container">
+                <div className="icon-container" onClick={onWishlistClick} style={{ cursor: 'pointer' }}>
                     <img src={Heart} alt="wishlist" className="icon-image" />
                     <div className="icon-badge">2</div>
                 </div>
+
                 <Link to="/signin" style={{ textDecoration: 'none', color: 'white' }}>
                     <span>Sign In</span>
                 </Link>
+
                 <div className="icon-container">
                     <img src={Cart} alt="cart" className="icon-image" />
                     <div className="icon-badge">3</div>

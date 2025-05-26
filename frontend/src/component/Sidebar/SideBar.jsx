@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import "./SideBar.css";
 import { fetchCategories } from "../../services/categoryService";
 
